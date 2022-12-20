@@ -1,8 +1,6 @@
 const { Pool } = require('pg');
 
 /* import Express and its types */
-
-
 import express, {
   json,
   urlencoded,
@@ -21,7 +19,7 @@ const pool = new Pool({
 
 module.exports = {
 
-  query: (text: string, params?: Array<string>, callback?: any) => {
+  query: (text: string, params?: Array<string>, callback?: Function ) => {
 
     console.log('executed query', text);
 

@@ -1,7 +1,8 @@
 import { Router } from 'express';
 
-/* import Express and its types */
+const router = Router();
 
+/* import Express and its types */
 import express, {
     json,
     urlencoded,
@@ -13,67 +14,49 @@ import express, {
 
 import interviewController from '../controllers/interviewController';
 
-const router = Router();
+// get all interviews
+// router.get( '/', interviewController.getInterviews, (req: Request, res: Response) => {
 
-// 
+//     console.log(res.locals);
 
-// 
+//     return res.status(200).json(res.locals.allInterviews);
 
-router.get(
+//   }
+// );
 
-  '/',
-
-  // interviewController.getInterview,
-
-  
-  (req: Request, res: Response) => {
+// get all interviews
+router.get( '/', interviewController.getInterviews, (req: Request, res: Response) => {
 
     console.log(res.locals);
+
     return res.status(200).json(res.locals.allInterviews);
 
   }
 );
 
+// add an interview
+router.post( '/', interviewController.createInterview, (req: Request, res: Response) => {
 
-router.post(
-  '/',
+  console.log(res.locals);
 
-  // interviewController.addInterview,
+  return res.status(200).json(res.locals.newInterview);
 
-  
-  (req: Request, res: Response) => {
-
-    console.log(res.locals);
-    return res.status(200).json(res.addedInterview);
-
-  }
+}
 );
 
-// delivers metrics from database
-// notice: the database controllers will console log, but not return errors so that individual charts can render
+// update an interview
+router.patch( '/:id', interviewController.updateInterview, (req: Request, res: Response) => {
 
-router.patch(
-  '/:id',
-
-  // interviewController.updateInterview,
-
-  
-  (req: Request, res: Response) => {
+  console.log(res.locals);
 
     return res.status(200).json(res.locals.updatedInterview);
   }
 );
 
-// this should reflect any method that would need to update based on user input
-// WIP: not currently in use but ready to be connected to front end based on user selection
+// delete an interview
+router.delete( '/:id', interviewController.deleteInterview, (req: Request, res: Response) => {
 
-router.delete(
-  '/:id',
-
-  // interviewController.deleteInterview,
-
-  
-  (req: Request, res: Response) => {
+  console.log(res.locals);
 
     return res.status(200).json(res.locals.deletedInterview);
   }
