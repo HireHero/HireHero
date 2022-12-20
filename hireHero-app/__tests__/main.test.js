@@ -19,6 +19,8 @@ dashboard page:
 -updates the table when a job application is logged
 
 SUPERTESTS
-
+server:
+-endpoint for logging in with our sample user
+-
 
 */
