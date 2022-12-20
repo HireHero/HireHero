@@ -23,7 +23,7 @@ router.get(
 
   '/',
 
-  interviewController.getInterview,
+  // interviewController.getInterview,
 
   
   (req: Request, res: Response) => {
@@ -38,7 +38,7 @@ router.get(
 router.post(
   '/',
 
-  interviewController.addInterview,
+  // interviewController.addInterview,
 
   
   (req: Request, res: Response) => {
@@ -55,7 +55,7 @@ router.post(
 router.patch(
   '/:id',
 
-  interviewController.updateInterview,
+  // interviewController.updateInterview,
 
   
   (req: Request, res: Response) => {
@@ -70,7 +70,7 @@ router.patch(
 router.delete(
   '/:id',
 
-  interviewController.deleteInterview,
+  // interviewController.deleteInterview,
 
   
   (req: Request, res: Response) => {

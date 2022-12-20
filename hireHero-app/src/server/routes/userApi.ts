@@ -23,7 +23,7 @@ router.post(
 
   '/',
 
-  userController.createUser, userController.createUserInterviews,
+  // userController.createUser, userController.createUserInterviews,
 
   
   (req: Request, res: Response) => {
@@ -40,7 +40,7 @@ router.post(
 router.get(
   '/',
 
-  userController.getUserInterviews,
+  // userController.getUserInterviews,
 
   
   (req: Request, res: Response) => {
@@ -58,7 +58,7 @@ router.get(
 router.patch(
   '/:',
 
-  userController.updateUserInterview,
+  // userController.updateUserInterview,
 
   
   (req: Request, res: Response) => {
@@ -73,7 +73,7 @@ router.patch(
 router.delete(
   '/',
 
-  userController.deleteInterview,
+  // userController.deleteInterview,
 
   
   (req: Request, res: Response) => {

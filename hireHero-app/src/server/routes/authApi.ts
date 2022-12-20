@@ -11,7 +11,7 @@ import express, {
   } from 'express';
 
 
-import authController from '../controllers/connectController';
+import authController from '../controllers/authController';
 
 const router = Router();
 
@@ -22,7 +22,7 @@ router.post(
 
   '/',
 
-  authController.verifyUser, authController.setCookie,
+  // authController.verifyUser, authController.setCookie,
 
   
   (req: Request, res: Response) => {
