@@ -2,22 +2,29 @@
   "name": "hirehero-app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev:server": "nodemon --watch src/server/ --watch src/server --exec 'ts-node src/server/index.ts'",
     "dev:client": "npm run build:client && vite --config vite.config.ts dev --open",
-    "build": "rimraf dist && tsc -p tsconfig.prod.json && npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build src/client/ --outDir dist/server",
+    "build:server": "vite build --outDir dist/server",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "coverage": "vitest --coverage",
     "preview": "vite preview",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx, src"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx, src",
+    "seed": "ts-node ./server/seed/seed.ts",
+    "start": "cross-env NODE_ENV=production ts-node server/server.ts",
+    "build": "vite build",
+    "dev": "concurrently \"vite serve\" \"nodemon --exec 'ts-node' server/server.ts\"",
+    "cert": "rm -rf .cert && mkdir -p .cert && mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 'localhost'",
+    "watch": "jest --watch"
   },
   "dependencies": {
     "@types/express": "^4.17.15",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
     "express": "^4.18.2",
+    "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,7 +34,8 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
-    "typescript": "^4.9.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
     "vite": "^4.0.0",
     "vitest": "^0.26.0"
   }

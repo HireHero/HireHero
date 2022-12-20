@@ -1,8 +1,7 @@
-import path from 'path';
-import type { Request, Response, NextFunction, Router, Express }  from 'express';
-import express from 'express';
+import path from "path";
+import type { Request, Response, NextFunction, Router, Express } from "express";
+import express from "express";
 const app = express();
-
 //import apiRouter from './routes/api';
 
 const PORT = 3000;
@@ -16,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * handle requests for static files
  */
-app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, "../../dist")));
 
 /**
  * define route handlers
@@ -35,9 +34,9 @@ app.use((req, res) =>
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
-    log: 'Express error handler caught unknown middleware error',
+    log: "Express error handler caught unknown middleware error",
     status: 500,
-    message: { err: 'An error occurred' },
+    message: { err: "An error occurred" },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);

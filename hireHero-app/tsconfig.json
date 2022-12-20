@@ -13,7 +13,7 @@
     "jsx": "react-jsxdev",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "strict": true,
-    "outDir": "dist",
+    "outDir": "../dist",
     "module": "ES2020",
     "moduleResolution": "Node",
     "skipLibCheck": true,
