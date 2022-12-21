@@ -3,32 +3,22 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev:server": "nodemon --watch src/server/ --watch src/server --exec 'ts-node src/server/index.ts'",
-    "dev:client": "npm run build:client && vite --config vite.config.ts dev --open",
-    "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server",
-    "test:watch": "vitest --watch",
-    "coverage": "vitest --coverage",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx, src",
-    "seed": "ts-node ./server/seed/seed.ts",
-    "cert": "rm -rf .cert && mkdir -p .cert && mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem 'localhost'",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
-    "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
-    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
-    "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "cross-env NODE_ENV=production ts-node server/index.ts",
     "build": "vite build",
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "client:dev": "vite",
-    "server:dev": "nodemon --exec ts-node server/index.ts",
+    "server:dev": "nodemon --watch src/server/ --watch src/server --exec 'ts-node src/server/index.ts'",
     "preview": "vite preview",
-    "watch": "jest --watch"
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules/"
-    ]    
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
