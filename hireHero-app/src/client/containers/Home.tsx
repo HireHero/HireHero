@@ -1,20 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../App.css'
+import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
+import CreateApplication from '../components/CreateApplication';
 
-const Dashboard = () => {
-  const logout = () => {
-    console.log('logout pressed');
+const Home = () => {
+  const [isShow, setIsShow] = useState(false);
+
+  const handleApplication = () => {
+    setIsShow((isShow) => !isShow);
   }
 
   return (
-    <div>
-      <nav>
-        <img src="/logo.png" alt="Logo" />
-        <a href="/pages">Pages</a>
-        <button onClick={logout}>Logout</button>
-      </nav>
-      <button>Add Application</button>
-      <h2>Your Applications</h2>
+    <div >
+      <NavBar />
+      <br></br>
+      <div>
+      <CreateApplication handleApplication={handleApplication} />
+      </div>
+
+     
+
+
+
+
       <table>
         <thead>
           <tr>
@@ -28,7 +37,7 @@ const Dashboard = () => {
         <tbody>
           {/* This is where we would loop over the user's applications and render a row for each one */}
           <tr>
-            <td>Example Company</td>
+            <td>Example tCompany</td>
             <td>2022-01-01</td>
             <td>Pending</td>
             <td>2022-01-15</td>
@@ -36,8 +45,9 @@ const Dashboard = () => {
           </tr>
         </tbody>
       </table>
+      <Footer />
     </div>
   );
 }
 
-export default Dashboard;
+export default Home;
