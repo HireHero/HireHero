@@ -5,7 +5,7 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
+import Home from './containers/Home';
 import './App.css'
 import LoginPage from './containers/LoginPage';
 
@@ -14,14 +14,15 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route 
-        path = '/'
-        element={<Dashboard />}
-        />
         <Route
-        path ='/login'
+        path ='/'
         element={<LoginPage />}
         />
+        <Route 
+        path = '/home'
+        element={<Home />}
+        />
+      
       </Routes>
     </Router>
   )

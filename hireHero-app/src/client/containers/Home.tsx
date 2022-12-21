@@ -1,19 +1,19 @@
 import React from 'react';
 import '../App.css'
+import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 
 const Dashboard = () => {
-  const logout = () => {
-    console.log('logout pressed');
-  }
+  const LogoutButton = () => {
+        window.open("/") 
+}
 
   return (
     <div>
-      <nav>
-        <img src="/logo.png" alt="Logo" />
-        <a href="/pages">Pages</a>
-        <button onClick={logout}>Logout</button>
-      </nav>
-      <button>Add Application</button>
+
+      <NavBar />
+      
+      
       <h2>Your Applications</h2>
       <table>
         <thead>
@@ -36,6 +36,7 @@ const Dashboard = () => {
           </tr>
         </tbody>
       </table>
+      <Footer />
     </div>
   );
 }

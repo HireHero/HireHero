@@ -3,7 +3,7 @@ import LoginButton from '../components/LoginButton';
 import RegisterButton from '../components/RegisterButton';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage = (setUserData) => {
     const navigate = useNavigate();
     const [accountCreation, setAccountCreation] = useState(false);
   //adding state object
@@ -23,11 +23,41 @@ function clearFields(){
     })
 }
 
-//LoginUser
+//Swap form
+function swapForms() {
+    clearFields();
+    setAccountCreation(!accountCreation);
+}
 
+//Registration Body
+async function registerAccount() {
+    clearFields();
+    await fetch("/model/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...userObj }),
+    })
+      .then((response) => {
+        console.log(response, "response");
+        if (response.ok && response.status === 200) return response.json();
+        throw new Error("Username already exits"); 
+      })
+      .then((response) => {
+        console.log(response, "response");
+        setUserData(response.user_info)
+        return navigate("/");
+      })
+      .catch((error) => console.log(error));
+  }
+
+
+
+//LoginUser
 async function loginUser(){
     clearFields();
-    await fetch("/login", {
+    await fetch("/model/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -40,7 +70,7 @@ async function loginUser(){
     })
     .then((response) => {
         console.log('Logging In')
-        return navigate("/");
+        return navigate("/home");
     })
     .catch((err) => {
         console.log("Error: ", err)
@@ -54,8 +84,6 @@ const handleSubmit = (e) => {
 
 const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log('name', name);
-    console.log('value', value);
     setUserObj({ ...userObj, [name]: value });
 };
 
@@ -63,6 +91,7 @@ const handleInputChange = (e) => {
         <div className="login-page-container">
             <div className="login-page">
               <h1> Welcome to HireHero</h1>
+              {!accountCreation ? <h2>Please log in</h2> : <h2>Please sign up</h2>}
               <form onSubmit={handleSubmit} className="form">
                   <label>
                     Username:
@@ -72,7 +101,7 @@ const handleInputChange = (e) => {
                     name="username"
                     value={userObj.userName}
                     className="form-inputbox" 
-                    onChange={e => handleInputChange(e)} />
+                    onChange={(e )=> handleInputChange(e)} />
                   </label>
                   <label>
                     Password:
@@ -82,11 +111,19 @@ const handleInputChange = (e) => {
                     name='password'
                     value={userObj.password}
                     className="form-inputbox"
-                    onChange={e => handleInputChange(e)}
+                    onChange={(e )=> handleInputChange(e)}
                     />
                   </label>
-                  <LoginButton loginUser={loginUser} />
-                  <RegisterButton />
+                  {!accountCreation ? (
+                  <LoginButton swapRegister={swapForms} loginUser={loginUser} />
+                      ) : (
+                 <RegisterButton
+                swapLogin={swapForms}
+                registerAccount={registerAccount}
+            />
+          )}
+                  {/* <LoginButton loginUser={loginUser} />
+                  <RegisterButton /> */}
               </form>
             </div>
         </div>

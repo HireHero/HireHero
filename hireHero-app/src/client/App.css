@@ -89,3 +89,15 @@ nav a {
 nav button {
   font-size: 14px;
 }
+
+/* Footer */
+.footer {
+  display: inline-flex;
+  font-family: "Open Sans Regular";
+  color: rgb(101, 101, 101);
+  background-color: #fcf7f7;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+}

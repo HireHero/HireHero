@@ -1,19 +1,20 @@
-import React from 'react'
-const RegisterButton = ({registerAccount}) => {
-    const handleClick = () => {
-        window.open("/")
-    }
+import React from "react";
+import { Link } from "react-router-dom";
 
-    return ( 
-        <div>
-            <button className="button" onClick={handleClick}>
-                Cancel
-            </button>
-            <button className="button" onClick={registerAccount}>
-                Sign up
-            </button>
-        </div>
-     );
-}
- 
-export default RegisterButton;
+const RegisterButtons = ({ swapLogin, registerAccount }) => {
+  return (
+    <div>
+      <Link to="/home">
+        <button className={"button"} onClick={swapLogin}>
+          Cancel
+        </button>
+      </Link>
+
+      <button className={"button"} onClick={registerAccount}>
+        Sign Up
+      </button>
+    </div>
+  );
+};
+
+export default RegisterButtons;
