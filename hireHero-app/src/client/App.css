@@ -41,9 +41,9 @@
 
 .dash-container {
   background-color: mintcream;
-  display: flex;
+    display: flex;
   flex-direction: column;
-  align-items: center;
+    align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -68,6 +68,7 @@ body {
 /* Style the navbar */
 nav {
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #eee;
   height: 50px;
@@ -77,6 +78,10 @@ nav {
 nav img {
   height: 40px;
   margin: 5px;
+  font-size: 11pt;
+  background: transparent;
+  transition: 1s;
+  outline: none;
 }
 
 nav a {

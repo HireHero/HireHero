@@ -1,20 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../App.css'
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
+import CreateApplication from '../components/CreateApplication';
+import ApplicationForm from '../components/ApplicationForm';
 
-const Dashboard = () => {
-  const LogoutButton = () => {
-        window.open("/") 
-}
+const Home = () => {
+  const [isShow, setIsShow] = useState(true);
+  const handleApplication = () => {
+    setIsShow((isShow) => !isShow);
+  }
 
   return (
     <div>
 
       <NavBar />
-      
-      
-      <h2>Your Applications</h2>
+      <CreateApplication handleApplication={handleApplication} />
+      <ApplicationForm />
+
+
       <table>
         <thead>
           <tr>
@@ -41,4 +45,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default Home;
