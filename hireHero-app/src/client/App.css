@@ -1,0 +1,237 @@
+#root {
+  background-color: #28353B;
+  height: 100vh;
+  width: 100%;
+  color: white;
+}
+
+.logo {
+  height: 10em;
+  padding: 1.5em;
+  will-change: filter;
+
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set font and color for the entire application */
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* Style the navbar */
+nav {
+  display: flex;
+    justify-content: space-between;
+      align-items: center;
+    height: 60px;
+      background-color: rgb(163, 163, 68);
+      color: rgb(255, 255, 255);
+      border-radius: 0px 0px 25px 25px;
+}
+
+nav img {
+  height: 40px;
+  margin: 5px;
+  font-size: 11pt;
+  background: transparent;
+  transition: 1s;
+  outline: none;
+}
+
+nav a {
+  color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+      padding: 0 20px;
+      line-height: 60px;
+    }
+    
+    nav .menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav .menu a {
+      margin-left: 20px;
+}
+
+nav button {
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(163, 163, 68);
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 70px;
+  border-radius: 25px 25px 0px 0px;
+  }
+  
+  footer .copyright {
+    font-size: 14px;
+  }
+  
+  footer .social-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  footer .social-links a {
+    display: inline-block;
+    height: 30px;
+    background-color: rgb(118, 116, 116);
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+  
+  footer .social-links a:hover {
+    background-color: #555;
+  }
+  
+  /* LogIn Form */
+  
+  .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .login-form {
+    width: 300px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.login-form h1 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-size: 22px;
+}
+
+.login-form .form-control {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+
+.login-form .form-control:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.login-form .btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form .btn:hover {
+  background-color: #444;
+}
+
+.login-form .error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+label {
+  color: rgb(83, 78, 78)
+}
+
+/* application form page */
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button */
+
+button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+/* Site Title */
+
+.site-title {
+  color: rgb(248, 248, 248);
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 64px;
+  margin: 0 0 0;
+  padding: 20px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: px;
+}
