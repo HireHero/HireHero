@@ -1,158 +1,68 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-
-interface Column {
-  id: 'name' | 'code' | 'population' | 'size' | 'density';
-  label: string;
-  minWidth?: number;
-  align?: 'right';
-  format?: (value: number) => string;
-}
-
-const columns: readonly Column[] = [
-  { id: 'name', label: 'Company', minWidth: 170 },
-  { id: 'code', label: 'Position', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Date Applied',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'size',
-    label: 'Date of Interview',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Time of Interview',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Notes',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Application Status',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString('en-US'),
-  }
-];
-
-interface Data {
-  name: string;
-  code: string;
-  population: number;
-  size: number;
-  density: number;
-}
+import Paper from '@mui/material/Paper';
 
 function createData(
-  name: string,
-  code: string,
-  population: number,
-  size: number,
-): Data {
-  const density = population / size;
-  return { name, code, population, size, density };
+  company: string,
+  position: string,
+  date_applied: any,
+  date_of_interview: any,
+  time_of_interview: any,
+  notes_for_interview: any,
+  interview_status: any
+) {
+  return { company, position, date_applied, date_of_interview, time_of_interview, notes_for_interview, interview_status };
 }
 
 const rows = [
-  createData('India', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('Apple', 'Software Engineer 2', '2022-12-12', '2022-12-15', 4.0, 'went well', 'waiting'),
+  createData('Google', 'Software Engineer 3', '2022-12-12', '2022-12-15', 4.3, 'went well', 'accepted'),
+  createData('Amazon', 'Software Engineer 4', '2022-12-12', '2022-12-15', 6.0, 'went well', 'pending'),
+  createData('Capitol One', 'Software Engineer 5', '2022-12-12', '2022-12-15', 4.3, 'went well', 'pending'),
+  createData('Disney', 'Senior DevOp', '2022-12-12', '2022-12-15', 3.9, 'went well', 'accepted'),
 ];
 
-export default function StickyHeadTable() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
+export default function DenseTable() {
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Company</TableCell>
+            <TableCell align="right">Position</TableCell>
+            <TableCell align="right">Date Applied</TableCell>
+            <TableCell align="right">Date of Interview</TableCell>
+            <TableCell align="right">Time of Interview</TableCell>
+            <TableCell align="right">Notes</TableCell>
+            <TableCell align="right">Application Status</TableCell>
+
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.company}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.company}
+              </TableCell>
+              <TableCell align="right">{row.position}</TableCell>
+              <TableCell align="right">{row.date_applied}</TableCell>
+              <TableCell align="right">{row.date_of_interview}</TableCell>
+              <TableCell align="right">{row.time_of_interview}</TableCell>
+               <TableCell align="right">{row.notes_for_interview}</TableCell>
+                <TableCell align="right">{row.interview_status}</TableCell>
+     
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
