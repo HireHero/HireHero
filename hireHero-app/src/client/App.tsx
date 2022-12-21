@@ -8,8 +8,7 @@ import {
 import Home from './containers/Home';
 import './App.css'
 import LoginPage from './containers/LoginPage';
-
-import ApplicationForm from './components/ApplicationForm';
+import AppFormPage from './containers/AppFormPage';
 
 function App() {
 
@@ -26,7 +25,7 @@ function App() {
         />
          <Route 
         path = '/create'
-        element={<ApplicationForm />}
+        element={<AppFormPage />}
         />
       
       </Routes>

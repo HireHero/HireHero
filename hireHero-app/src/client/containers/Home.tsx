@@ -3,7 +3,6 @@ import '../App.css'
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import CreateApplication from '../components/CreateApplication';
-import ApplicationForm from '../components/ApplicationForm';
 
 const Home = () => {
   const [isShow, setIsShow] = useState(false);
@@ -15,8 +14,12 @@ const Home = () => {
   return (
     <div >
       <NavBar />
+      <br></br>
+      <div>
       <CreateApplication handleApplication={handleApplication} />
+      </div>
 
+     
 
 
 

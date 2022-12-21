@@ -88,11 +88,14 @@ const handleInputChange = (e) => {
 };
 
     return (
-        <div className="login-page-container">
+        <div className="login-container">
             <div className="login-page">
+               <img src="https://api.logo.com/api/v2/images?format=webp&logo=logo_cceb9dac-3199-41d7-99f9-1f80eaa41c1c&width=2000&quality=100&background=transparent&fit=contain&u=1671607868" 
+               alt="My Website logo" 
+               class="logo" />
               <h1> Welcome to HireHero</h1>
-              {!accountCreation ? <h2>Please log in</h2> : <h2>Please sign up</h2>}
-              <form onSubmit={handleSubmit} className="form">
+              {/* {!accountCreation ? <h2>Please log in</h2> : <h2>Please sign up</h2>} */}
+              <form onSubmit={handleSubmit} className="login-form">
                   <label>
                     Username:
                     <input 
@@ -100,7 +103,7 @@ const handleInputChange = (e) => {
                     type="text" 
                     name="username"
                     value={userObj.userName}
-                    className="form-inputbox" 
+                    className="form-control" 
                     onChange={(e )=> handleInputChange(e)} />
                   </label>
                   <label>
@@ -110,7 +113,7 @@ const handleInputChange = (e) => {
                     type="text" 
                     name='password'
                     value={userObj.password}
-                    className="form-inputbox"
+                    className="form-control"
                     onChange={(e )=> handleInputChange(e)}
                     />
                   </label>

@@ -7,14 +7,14 @@ const Navbar = () => {
   
   return (
     <nav className="nav">
+      
       <Link to="/" className="site-title">
-        HireHero
+        Hire Hero
       </Link>
-      <ul>
-        <CustomLink to="/pages">Pages</CustomLink>
+      <div className="menu">
+        <CustomLink to="/home">Home</CustomLink>
         <CustomLink to="/">Logout</CustomLink>
-       
-      </ul>
+      </div>
     </nav>
   )
 }

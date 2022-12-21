@@ -16,10 +16,11 @@ function ApplicationForm() {
 
   return (
   
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="login-form">
     <label>
         Company
          <input
+         className="form-control"
         type="text"
         name="company"
         value={formData.company}
@@ -28,10 +29,11 @@ function ApplicationForm() {
         }}
       />
     </label>
-    <br></br>
+
     <label>
         Position
          <input
+          className="form-control"
         type="text"
         name="position"
         value={formData.position}
@@ -40,10 +42,11 @@ function ApplicationForm() {
         }}
       />
     </label>
-     <br></br>
+    
     <label>
         Date applied
          <input
+          className="form-control"
         type="text"
         name="date_applied"
         value={formData.date_applied}
@@ -52,10 +55,11 @@ function ApplicationForm() {
         }}
       />
     </label>
-    <br></br>
+    
     <label>
         Date of Interview
          <input
+          className="form-control"
         type="text"
         name="date_of_interview"
         value={formData.date_of_interview}
@@ -64,10 +68,11 @@ function ApplicationForm() {
         }}
       />
     </label>
-     <br></br>
+     
     <label>
         Time of Interview
          <input
+          className="form-control"
         type="text"
         name="time_of_interview"
         value={formData.time_of_interview}
@@ -76,10 +81,11 @@ function ApplicationForm() {
         }}
       />
     </label>
-     <br></br>
+    
     <label>
         Notes 
          <input
+          className="form-control"
         type="text"
         name="notes"
         value={formData.notes}
@@ -88,10 +94,11 @@ function ApplicationForm() {
         }}
       />
     </label>
-     <br></br>
+
     <label>
         Application Status
        <select 
+        className="form-control"
        value={selected} 
        onChange={(event) => setSelected(event.target.value)}>
          {options.map((value) => (
@@ -108,8 +115,6 @@ function ApplicationForm() {
       <Link to="/home">
           <button type="button">Home</button>
       </Link>
-
-
     </form>
   );
 }

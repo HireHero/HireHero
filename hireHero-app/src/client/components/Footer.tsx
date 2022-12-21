@@ -2,11 +2,15 @@ import React from "react";
 
 function Footer(props) {
   return (
-    <div className="footer">
-      <ul className="ft-btn">Contact Us</ul>
-      <ul className="ft-btn">Report a problem</ul>
-      <ul className="ft-btn">FAQ</ul>
-    </div>
+<footer>
+  <div class="copyright">Contact Us</div>
+  <div class="social-links">
+    <a href="#">Twitter</a>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+  </div>
+</footer>
+
   );
 }
 
