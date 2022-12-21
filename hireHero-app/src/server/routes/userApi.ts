@@ -21,7 +21,7 @@ router.post( '/', userController.createUser, (req: Request, res: Response) => {
 
     console.log(res.locals.user);
 
-    return res.status(200).json(res.locals.user); 
+    return res.status(200).json(res.locals.username); 
     /* can also auto-login after account created and route to main, 
     but wouuld need to add verify and set cookie mddleware */
 

@@ -29,32 +29,46 @@ const userController: UserController = {
 
   createUser: async (req: Request, res: Response, next: NextFunction ) => {
 
-    const queryString = 'Insert into user_data(user_id, username, password) VALUES ($1, $2, $3) RETURNING *;';
+    const queryString = 'Insert into user_creds(username, password) VALUES ($1, $2);';
+
+    let hashedPw;
 
 
-// takes password and salt and returns a hashed pw
-    bcrypt.hash(req.body.password, saltRound, (error: any, hash: string) => {
-      if(error) {// if there's an error hashing the pw return err msg 500
-        res.send({ success: false, statusCode: 500, message: 'Error salting password: ' + error })
-      } else { // otherwise assign hash to req.body.password
-        req.body.password = hash;
-      }
-    })
+    // takes password and salt and returns a hashed pw
+    // bcrypt.hash(req.body.password, saltRound, (error: any, hash: string) => {
+    //   if(error) {// if there's an error hashing the pw return err msg 500
+    //     res.send({ success: false, statusCode: 500, message: 'Error salting password: ' + error })
+    //   } else { // otherwise assign hash to req.body.password
+    //     // req.body.password = hash;
+    //     hashedPw = hash;
+    //   }
+
+    // })
 
     const createUserDetails = [
-      req.body.user_id,
+      // req.body.user_id, // auto-adds increments in SQL
       req.body.username,
-      req.body.password // uses the reassigned hash pw
+      req.body.password // hashedPw // uses the reassigned hash pw
     ];
 
-    db.query(queryString, createUserDetails, (err: Error, result: Response) => {
-      if(err) return next(err);
+    // db.query(queryString, createUserDetails, (err: Error, result: Response) => {
+      
+    //   if(err) return next({log: err, message: {Error: err}});
+    //   res.locals.username = req.body.username;
+    //   return next();
+    // })
+
+
+    db.query(queryString, createUserDetails)
+    .then((data: any) => {
       res.locals.username = req.body.username;
       return next();
     })
+    .catch((err: any) => {
+      return next({log: err, message: {Error: err}});
+    })
 
-
-  }  
+  }
 
 };
 

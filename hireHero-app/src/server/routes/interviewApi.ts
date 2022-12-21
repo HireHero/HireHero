@@ -41,11 +41,11 @@ router.post( '/', interviewController.createInterview, (req: Request, res: Respo
 
   return res.status(200).json(res.locals.newInterview);
 
-}
+  }
 );
 
 // update an interview
-router.patch( '/:id', interviewController.updateInterview, (req: Request, res: Response) => {
+router.patch( '/', interviewController.updateInterview, (req: Request, res: Response) => {
 
   console.log(res.locals);
 
@@ -54,7 +54,7 @@ router.patch( '/:id', interviewController.updateInterview, (req: Request, res: R
 );
 
 // delete an interview
-router.delete( '/:id', interviewController.deleteInterview, (req: Request, res: Response) => {
+router.delete( '/', interviewController.deleteInterview, (req: Request, res: Response) => {
 
   console.log(res.locals);
 
