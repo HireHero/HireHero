@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 
-// hireHero
+// hireHero update
 // import db from '../model/interviewModel';
 const db = require('../model/interviewModel');
 
