@@ -47,7 +47,7 @@ const userController: UserController = {
 
     const createUserDetails = [
       // req.body.user_id, // auto-adds increments in SQL
-      req.body.username,
+      req.body.userName,
       req.body.password // hashedPw // uses the reassigned hash pw
     ];
 
@@ -61,7 +61,7 @@ const userController: UserController = {
 
     db.query(queryString, createUserDetails)
     .then((data: any) => {
-      res.locals.username = req.body.username;
+      res.locals.username = req.body.userName;
       return next();
     })
     .catch((err: any) => {
