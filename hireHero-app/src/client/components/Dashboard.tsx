@@ -28,7 +28,7 @@ const Dashboard = () => {
         <tbody>
           {/* This is where we would loop over the user's applications and render a row for each one */}
           <tr>
-            <td>Example Company</td>
+            <td>Example tCompany</td>
             <td>2022-01-01</td>
             <td>Pending</td>
             <td>2022-01-15</td>

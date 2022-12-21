@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Navigate,
@@ -8,9 +7,9 @@ import {
 } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import './App.css'
+import LoginPage from './containers/LoginPage';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <Router>
@@ -18,6 +17,10 @@ function App() {
         <Route 
         path = '/'
         element={<Dashboard />}
+        />
+        <Route
+        path ='/login'
+        element={<LoginPage />}
         />
       </Routes>
     </Router>
