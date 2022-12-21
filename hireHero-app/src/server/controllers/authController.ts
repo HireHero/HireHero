@@ -24,8 +24,11 @@ interface resultObj {
 }
 
 const authController: AuthController = {
+
   verifyUser: async (req: Request, res: Response, next: NextFunction) => {
+
     const { userName, password } = req.body;
+    
     console.log('USER', userName);
     console.log('PASS', password);
 
