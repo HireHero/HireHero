@@ -48,10 +48,6 @@
   height: 100%;
 }
 
-.navBar {
-
-}
-
 /* Reset default styles */
 * {
   margin: 0;
@@ -106,3 +102,6 @@ nav button {
   bottom: 0;
   height: 70px;
 }
+
+/* App Form */
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
  /* 
  When click this button, open a form for user to fill in infomation of interview tracking
@@ -9,7 +10,9 @@ import React from 'react';
         handleApplication ();
   };
     return (
-        <button className="button" onClick={handleClick}>New Application</button>
+      <Link to="/create">
+           <button className="button" onClick={handleClick}>New Application</button>
+      </Link>
       );
  }
   

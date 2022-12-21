@@ -4,6 +4,7 @@ import React from 'react';
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
 const Navbar = () => {
+  
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
@@ -12,6 +13,7 @@ const Navbar = () => {
       <ul>
         <CustomLink to="/pages">Pages</CustomLink>
         <CustomLink to="/">Logout</CustomLink>
+       
       </ul>
     </nav>
   )

@@ -9,6 +9,8 @@ import Home from './containers/Home';
 import './App.css'
 import LoginPage from './containers/LoginPage';
 
+import ApplicationForm from './components/ApplicationForm';
+
 function App() {
 
   return (
@@ -21,6 +23,10 @@ function App() {
         <Route 
         path = '/home'
         element={<Home />}
+        />
+         <Route 
+        path = '/create'
+        element={<ApplicationForm />}
         />
       
       </Routes>

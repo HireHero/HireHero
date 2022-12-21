@@ -6,17 +6,19 @@ import CreateApplication from '../components/CreateApplication';
 import ApplicationForm from '../components/ApplicationForm';
 
 const Home = () => {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
+
   const handleApplication = () => {
     setIsShow((isShow) => !isShow);
   }
 
   return (
-    <div>
-
+    <div >
       <NavBar />
       <CreateApplication handleApplication={handleApplication} />
-      <ApplicationForm />
+
+
+
 
 
       <table>
