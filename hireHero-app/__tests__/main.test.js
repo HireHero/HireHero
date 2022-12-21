@@ -21,6 +21,6 @@ dashboard page:
 SUPERTESTS
 server:
 -endpoint for logging in with our sample user
--
+-userApi
 
 */
