@@ -1,53 +1,74 @@
-import path from "path";
-import type { Request, Response, NextFunction, Router, Express } from "express";
-import express from "express";
-const app = express();
-//import apiRouter from './routes/api';
+import path from 'path';
 
-const PORT = 3000;
+import userApi from './routes/userApi'; /* userApi */
+import interviewApi from './routes/interviewApi'; /* interviewApi */
+import authApi from './routes/authApi'; /* authApi */
 
-/**
- * handle parsing request body
- */
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+import cookieParser from 'cookie-parser';
 
-/**
- * handle requests for static files
- */
+/* import Express and its types */
+import express, {
+  Express,
+  json,
+  urlencoded,
+  Request,
+  Response,
+  NextFunction,
+  RequestHandler,
+  ErrorRequestHandler
+} from 'express';
+
+/* initialize express */
+const app: Express = express();
+
+/* setup the PORT */
+const port = 3000;
+
+// Parse cookies
+app.use(cookieParser());
+
+// handles the parsing of the request bodies */
+app.use(json());
+app.use(urlencoded({ extended: true }) as RequestHandler);
+
+// handle requests for static files
 app.use(express.static(path.resolve(__dirname, "../../dist")));
 
-/**
- * define route handlers
- */
-// app.use('/api', apiRouter);
+//define route handlers
+app.use('/api/signup', userApi);
+app.use('/api/interviews', interviewApi);
+app.use('/api/login', authApi);
 
-// catch-all route handler for any requests to an unknown route
-app.use((req, res) =>
-  res.status(404).send("This is not the page you're looking for...")
-);
 
-/**
- * express error handler
- * @see https://expressjs.com/en/guide/error-handling.html#writing-error-handlers
- */
+// Catch-all route handler
+app.use('*', (req: Request, res: Response) => {
 
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  const defaultErr = {
-    log: "Express error handler caught unknown middleware error",
+  return res.sendStatus(404);
+
+});
+
+
+
+/* Global Error Handler */
+app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
+  const defaultError = {
+    log: 'Express error handler caught unknown middleware error',
     status: 500,
-    message: { err: "An error occurred" },
+    message: { Error: 'An error occurred' },
   };
-  const errorObj = Object.assign({}, defaultErr, err);
-  console.log(errorObj.log);
+
+  const errorObj = Object.assign({}, defaultError, err);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-/**
- * start server
- */
-app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}...`);
+
+
+/* start the server */
+const server = app.listen(port, () => {
+  console.log(`Server started on Port: ${port}`);
 });
 
-module.exports = app;
+
+
+/* export the server */
+module.exports = server;
