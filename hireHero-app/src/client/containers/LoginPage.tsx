@@ -32,7 +32,7 @@ function swapForms() {
 //Registration Body
 async function registerAccount() {
     clearFields();
-    await fetch("/model/register", {
+    await fetch("/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -99,9 +99,9 @@ const handleInputChange = (e) => {
                   <label>
                     Username:
                     <input 
-                    id="username"
+                    id="userName"
                     type="text" 
-                    name="username"
+                    name="userName"
                     value={userObj.userName}
                     className="form-control" 
                     onChange={(e )=> handleInputChange(e)} />
