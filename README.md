@@ -14,22 +14,20 @@ Designed to help job-seekers stay organized with the interview process.
 
 ## Tech Stack
 
-This project was built utilizing a combination of the following technologies: React.js, TypeScript, Material UI, Node.js, Express, Postgres database (ElephantSQL)
+This project was built utilizing a combination of the following technologies: React.js | TypeScript | Material UI | Node.js | Express | Postgres database (ElephantSQL)
 
 ## Features
 
-Authentication
-Integrated Google Calendar API
+Authentication | Integrated Google Calendar API
 
 ## Future Goals
 
-Integrated chat feature
-Testing
+Integrated chat feature | Testing
 
 ## Authors
 
 - Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/) | [GitHub](https://github.com/edcho720)
-- Elise McConnell
-- Tiffany Chau
-- Ruqayaah S.
-- Joe Hynan
+- Elise McConnell [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
+- Tiffany Chau [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
+- Ruqayaah S. [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
+- Joe Hynan [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
