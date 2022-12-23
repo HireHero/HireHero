@@ -1,7 +1,4 @@
 # HireHero
-
-git commit -m "your commit message here
-<hit enter 3 times>
 Co-authored-by: Joseph Hynan <111455487+JoeH1020@users.noreply.github.com>
 Co-authored-by: Elise McConnell <112969060+enmcco@users.noreply.github.com>
 Co-authored-by: Ruqayaah Sabitu  <49168086+ruqayaahh@users.noreply.github.com>
