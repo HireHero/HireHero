@@ -29,5 +29,5 @@ Integrated chat feature | Testing
 - Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/) | [GitHub](https://github.com/edcho720)
 - Elise McConnell [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
 - Tiffany Chau [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
-- Ruqayaah S. [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
+- Ruqayaah Sabitu [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
 - Joe Hynan [LinkedIn](https://www.linkedin.com/in//) | [GitHub](https://github.com//)
